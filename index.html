@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+    <title>150 days!</title>
+
+    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.ionicframework.com/contrib/ionic-contrib-swipecards/ionic.swipecards.js?v=5"></script>
+
+
+  </head>
+  <body ng-app="starter" class="slide-left-right-ios7" no-scroll>
+    <center class="love">Love you dumbo</center>
+
+    <ion-pane ng-controller="CardsCtrl">
+      <ion-header-bar class="bar-transparent">
+      </ion-header-bar>
+
+      <swipe-cards on-card-swipe="onSwipe($event)">
+        <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)">
+
+          <div ng-controller="CardCtrl">
+          <b><div class="title">
+              {{card.title}}
+            </div>
+          </div></b>
+        </swipe-card>
+      </swipe-cards>
+    </ion-pane>
+    <script> angular.module('starter', ['ionic', 'ionic.contrib.ui.cards'])
+.directive('noScroll', function($document) {
+
+  return {
+    restrict: 'A',
+    link: function($scope, $element, $attr) {
+
+      $document.on('touchmove', function(e) {
+        e.preventDefault();
+      });
+    }
+  }
+})
+
+
+
+.controller('CardsCtrl', function($scope, $ionicSwipeCardDelegate) {
+  var cardTypes = [{ title: 'Read everything, Dont be a lazy ass. Dont skip anything.'},
+    { title: '1. I love how I am and feel when I am with you.',},
+    { title: '2. I love the strong connection between us.'},
+    { title: '3. I love the way you take the time to show me how much you care.'},
+    { title: '4. I love how we always know when something is wrong.'},
+    { title: '5. I love the passion between us.'},
+    { title: '6. I love your greatness.'},
+    { title: '7. I love your ambition.'},
+    { title: '8. I love your beautiful brown eyes.  '},
+    { title: '9. I love the way you treat me.'},
+    { title: '10. I love the way you call me Pc. '},
+    { title: '11. I love the way you encourage me.'},
+    { title: '12. I love the good tingling feeling I get when I think about you or talk to you.'},
+    { title: '13. I love you just the way you are.'},
+    { title: '14. I love the way you make me feel like anything is possible when we are together.'},
+    { title: '15. I love the way you make sure I am safe.'},
+    { title: '16. I love the way you make me feel safe.'},
+    { title: '17. I love that you make me feel like Ive never felt before.'},
+    { title: '18. I love that we can share anything.'},
+    { title: '19. I love how perfect we are together.'},
+    { title: '20. I love how our relationship grows everyday.'},
+    { title: '21. I love the sound of your voice.'},
+    { title: '22. I love how you look deep into my eyes.'},
+    { title: '23. I love how you tell me you miss me everyday.'},
+    { title: '24. I love the way you say the sweetest things over and over and they never get old.'},
+    { title: '25. I love how I could never hate you.'},
+    { title: '26. I love how you have let me into your life.'},
+    { title: '27. I love how you always listen to me.'},
+    { title: '28. I love the way you have opened up to me.'},
+    { title: '29. I love the way you share your feelings.'},
+    { title: '30. I love how we text message.'},
+    { title: '31. I love how we talk on the phone.'},
+    { title: '32. I love the way that you inspire me. '},
+    { title: '33. I love the way you complete me.'},
+    { title: '34. I love how our romance feels like a perfect romance movie.'},
+    { title: '35. I love the way you have changed my life.'},
+    { title: '36. I love how you tell me I am beautiful. '},
+    { title: '37. I love the way, how even though we may be miles apart I still feel like you are right here with me.'},
+    { title: '38. I love how you understand me.'},
+    { title: '39. I love the way you dress.'},
+    { title: '40. I love your amazing personality.'},
+    { title: '41. I love how you can always make me smile.'},
+    { title: '42. I love how you are up for new ideas.'},
+    { title: '43. I love the way you make me laugh.'},
+    { title: '44. I love the way you laugh'},
+    { title: '45. I love how you are always there for me.'},
+    { title: '46. I love how we always have fun together.'},
+    { title: '47. I love how I would do anything for you.'},
+    { title: '48. I love how you respect me.'},
+    { title: '49. I love your honesty.'},
+    { title: '50. I love that you have goals and dreams.'},
+    { title: '51. I love your craziness.'},
+    { title: '52. I love the way you watch me. '},
+    { title: '53. I love that you want me to call you when I get home.'},
+    { title: '54. I love your faithfulness.'},
+    { title: '55. I love that you are different'},
+    { title: '56. I love how you bring out the best in me.'},
+    { title: '57. I love that I can not imagine being with anyone else.'},
+    { title: '58. I love your charm.'},
+    { title: '59. I love how you always make time for me.'},
+    { title: '60. I love how you are patient with me.'},
+    { title: '61. I love how you trust me.'},
+    { title: '62. I love how you put effort into us.'},
+    { title: '63. I love how you help me sort things out.'},
+    { title: '64. 	I love how you would never hurt me.'},
+    { title: '65. I love your body.'},
+    { title: '66. I love your positive attitude.'},
+    { title: '67. I love how everything happened so perfectly.'},
+    { title: '68. I love that you are my other half.'},
+    { title: '69. I love how we are meant to be.'},
+    { title: '70. I love our memories together.'},
+    { title: '71. I love how you make me feel good inside and out.'},
+    { title: '72. I love how you are the sweetest girl ever'},
+    { title: '73. I love the sparkle of your eyes'},
+    { title: '74. I love what we have together.'},
+    { title: '75. I love how we can get through anything.'},
+    { title: '76. I love the way you look.'},
+    { title: '77. I love your spontaneity.'},
+    { title: '78. I love your willingness.'},
+    { title: '79. I love how you always forgive me.'},
+    { title: '80. I love how you compliment me. '},
+    { title: '81. I love how you can be serious.'},
+    { title: '82. I love how you joke around.'},
+    { title: '83. I love how you want to be with me.'},
+    { title: '84. I love you for showing me what true love is.'},
+    { title: '85. I love you for you.'},
+    { title: '86. I love the way you love me.'},
+    { title: '87. I love the way we communicate.'},
+    { title: '88. I love the way we love to spend time together.'},
+    { title: '89. I love when you tell me you love me.'},
+    { title: '90. I love that you want to show me off.'},
+    { title: '91. I love that you think about me all the time.'},
+    { title: '92. I love how we have deep conversations.'},
+    { title: '93. I love our desire to be together in the future.'},
+    { title: '94. I love the special moments we share.'},
+    { title: '95. I love how we can talk about the future.'},
+    { title: '96. I love how we dont want to share each other.'},
+    { title: '97. I love how we are understanding.'},
+    { title: '98. I love how gorgeous we look together. '},
+    { title: '99. I love that we can play games together.'},
+    { title: '100. I love how random we are.'},
+    { title: '101. I love how we daydream about each other.'},
+    { title: '102.  I love how you have included me into your future.'},
+    { title: '103. I love you for your dedication to our relationship. '},
+    { title: '104. I love that you want to marry me.'},
+    { title: '105. I love that you are my best friend.'},
+    { title: '106. I love it when you tell me that you will love me forever. '},
+    { title: '107. I love it when you act silly around me.'},
+    { title: '108. I love it when u remind me about the boss balls.'},
+    { title: '109. I love that you pay attention to me. '},
+    { title: '110.  I love that you want me to be happy.'},
+    { title: '111. I love that you will go out of your way for me. '},
+    { title: '112. I love that you make me feel like Ive never felt before.'},
+    { title: '113.  I love you because you are unique and genuine. '},
+    { title: '114. I love how much we have grown in this past year.'},
+    { title: '115.  I love how we can talk about anything. '},
+    { title: '116.  I love how you always want to do what is best for us. '},
+    { title: '117. I love that you take care of me.'},
+    { title: '118. I love knowing that you will always be there for me, no matter what. '},
+    { title: '119.  I love that you are willing to run with me and go my pace. '},
+    { title: '120. I love how important I am to you. '},
+    { title: '121.  I love how I can be the biggest dork around you but you still love me. '},
+    { title: '122. I love you love me in the times when I’m not capable to love myself.'},
+    { title: '123. I love it when you love me in times when I act like I don’t love you.'},
+    { title: '124. I love you when you forgive me quickly.'},
+    { title: '125. I love you when you are truthful and vulnerable with me.'},
+    { title: '126. I love you because you are courageous.'},
+    { title: '127. I love you when you are sad and you share your sadness with me.'},
+    { title: '128. I love your energy because is clean and bright.'},
+    { title: '129. I love you because you are smart and a fast learner.'},
+    { title: '130. I love you because you taught me how to love unconditionally.'},
+    { title: '131. I love you because you made the first move.'},
+    { title: '132. I love it When I’m stuck, you help me find a solution.'},
+    { title: '133. I’m not afraid to fall, ’cause I know you are there to catch me.'},
+    { title: '134. You are wonderful for at least 150 more reasons.'},
+    { title: '135. I love you for at least 150 more reasons.'},
+    { title: '136. I love it when you are gentle and thoughtful.'},
+    { title: '137. I love it when You care to know how I feel in every moment.'},
+    { title: '138. I love it that You are reliable.'},
+    { title: '139. I love when You bravely listen and accept my complaints.'},
+    { title: '140. I love it when You care about my relationship with my parents.'},
+    { title: '141. I love it when You care about my success and my happiness.'},
+    { title: '142. I love it You are shy and you’re letting me see it.'},
+    { title: '143. I love it when You know how to take me boldly, wildly and strong while we have sex.'},
+    { title: '144. I love  it when You care about my opinion and we make all the important decisions together.'},
+    { title: '145. I love it when You call me all the sweet nicknames'},
+    { title: '146. I love it when You always believe in me.'},
+    { title: '147. I love it when You give me space and freedom when I need it.'},
+    { title: '148. I love your attitude towards my friends and family.'},
+    { title: '149. I love that We have so much in common with you.'},
+    { title: '150.I love you because you are trully the most amazing girl in the entire world. I love you! You are the best thing that has ever happened to me! :) '}];
+
+  $scope.cards = cardTypes.reverse();
+
+  $scope.cardDestroyed = function(index) {
+    $scope.cards.splice(index, 1);
+  };
+
+  $scope.addCard = function() {
+    var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+    newCard.id = Math.random();
+    $scope.cards.push(angular.extend({}, newCard));
+  }
+})
+
+.controller('CardCtrl', function($scope, $ionicSwipeCardDelegate) {
+  $scope.goAway = function() {
+    var card = $ionicSwipeCardDelegate.getSwipeableCard($scope);
+    card.swipe();
+  };
+});
+</script>
+  </body>
+</html>
